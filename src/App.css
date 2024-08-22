@@ -1,0 +1,17 @@
+.app {
+  display: flex;
+  justify-content: space-evenly;
+  flex-direction: column;
+}
+
+.top-section {
+  height: 28vh;
+}
+
+.content-section {
+  height: 60vh;
+}
+
+.bottom-section {
+  height: 12vh;
+}
