@@ -1,12 +1,12 @@
 .tabs-container {
   display: flex;
   justify-content: space-evenly;
-  gap: 1rem;
   align-items: center;
-  background-color: rgba(215, 217, 217, 0.3);
+  background-color: #ffffff4d;
+  backdrop-filter: blur(50px);
   margin: 0 auto;
   border-radius: 10px;
-  width: 20rem;
+  width: 22rem;
   height: 4rem;
 }
 
@@ -14,7 +14,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: rgb(255, 255, 255, 0.8);
+  background: linear-gradient(45deg, #ffbdde, #a2ffff);
   border-radius: 10px;
   width: 2.6rem;
   height: 2.6rem;
@@ -24,7 +24,7 @@
 .icon-app i {
   font-size: 1.4rem;
   text-align: center;
-  color: #404040;
+  color: #222;
 }
 
 .icon-app:hover {

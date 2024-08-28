@@ -1,1 +1,51 @@
+.calendar-container {
+  display: flex;
+  justify-content: space-evenly;
+  margin: 2rem auto;
+  visibility: hidden;
+  transform: scale(0.9);
+  transition: all 0.5s ease-out;
+}
 
+.calendar-container.visible {
+  visibility: visible;
+  transform: scale(1);
+}
+
+.calendar-content {
+  width: 12.5rem;
+  min-height: 15rem;
+  border-radius: 10px;
+  background-color: #ffffff4d;
+  backdrop-filter: blur(50px);
+}
+
+.calendar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 1rem;
+}
+
+.calendar-header i {
+  cursor: all-scroll;
+}
+
+.calendar-header h3 {
+  font-size: 1.5rem;
+  cursor: default;
+}
+
+p {
+  margin: 0 0.5rem;
+}
+
+h3,
+p,
+i {
+  color: #fff;
+}
+
+p:hover {
+  cursor: pointer;
+}

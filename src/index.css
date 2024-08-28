@@ -6,6 +6,7 @@
 }
 
 body {
-  background-image: url("./assets/w2.png");
+  background-image: url("./assets/w4.jpg");
   background-size: cover;
+  background-position: bottom;
 }
