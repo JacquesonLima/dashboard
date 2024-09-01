@@ -8,6 +8,7 @@ const Tasks = () => {
   useEffect(() => {
     setVisible(true);
   }, []);
+
   return (
     <div className={`tasks-container ${visible ? "visible" : ""}`}>
       <Draggable handle=".drag-handle">

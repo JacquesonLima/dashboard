@@ -23,7 +23,7 @@
   display: flex;
   gap: 1rem;
   text-align: center;
-  margin: 2rem 0 1rem;
+  margin: 1.5rem 0 1rem;
 }
 
 .timer-options button {
@@ -36,6 +36,16 @@
 
 .timer-options #button-focus {
   background-color: #cb202d;
+}
+
+#button-focus:hover {
+  background-color: #a11924;
+  cursor: pointer;
+}
+
+#button-break:hover {
+  background-color: #5d5d5e;
+  cursor: pointer;
 }
 
 .timer-content h3 {
@@ -68,4 +78,5 @@
 
 .timer-start button:hover {
   cursor: pointer;
+  background-color: #bebebe;
 }

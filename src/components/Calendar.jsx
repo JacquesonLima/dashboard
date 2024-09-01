@@ -2,37 +2,40 @@ import React, { useEffect, useState } from "react";
 import "./Calendar.css";
 import Draggable from "react-draggable";
 
-const Calendar = () => {
+const Calendar = ({ title }) => {
   const [visible, setVisible] = useState(false);
   const [task, setTask] = useState("");
   const [tasks, setTasks] = useState([]);
   const [showInput, setShowInput] = useState(false);
 
   useEffect(() => {
+    const savedTasks = localStorage.getItem(`tasks-${title}`);
+    if (savedTasks) {
+      setTasks(JSON.parse(savedTasks));
+    }
     setVisible(true);
-  }, []);
+  }, [title]);
+
+  useEffect(() => {
+    if (tasks.length > 0) {
+      localStorage.setItem(`tasks-${title}`, JSON.stringify(tasks));
+    }
+  }, [tasks, title]);
 
   const handleAddButtonClick = () => {
-    if (showInput && task) {
-      setTasks([...tasks, task]);
+    if (showInput && task.trim()) {
+      setTasks((prevTasks) => [...prevTasks, task.trim()]);
       setTask("");
       setShowInput(false);
     } else {
       setShowInput(true);
     }
-    console.log(tasks);
   };
 
-  // const addTask = () => {
-  //   if (task) {
-  //     setTasks([...tasks, task]);
-  //     setTask("");
-  //   }
-  // };
-
   const deleteTask = (indexToDelete) => {
-    const newTasks = tasks.filter((_, index) => index != indexToDelete);
-    setTasks(newTasks);
+    const updatedTasks = tasks.filter((_, index) => index !== indexToDelete);
+    setTasks(updatedTasks);
+    localStorage.setItem(`tasks-${title}`, JSON.stringify(updatedTasks));
   };
 
   return (
@@ -40,86 +43,34 @@ const Calendar = () => {
       <Draggable handle=".drag-handle">
         <div className="calendar-content">
           <div className="calendar-header">
-            <h3>Monday</h3>
+            <h3>{title}</h3>
             <p className="drag-handle">
               <i className="fa-solid fa-up-down-left-right"></i>
             </p>
           </div>
-          <p className="add-icon">
-            <i className="fa-solid fa-plus"></i> Add
-          </p>
-        </div>
-      </Draggable>
-      <Draggable handle=".drag-handle">
-        <div className="calendar-content">
-          <div className="calendar-header">
-            <h3>Tuesday</h3>
-            <p className="drag-handle">
-              <i className="fa-solid fa-up-down-left-right"></i>
-            </p>
+          <div className="calendar-tasks">
+            {tasks.map((task, index) => (
+              <div
+                key={index}
+                className="calendar-task-item"
+                onDoubleClick={() => deleteTask(index)}
+              >
+                {task}
+              </div>
+            ))}
           </div>
-          {tasks.map((task, index) => (
-            <div
-              key={index}
-              className="calendar-task-item"
-              onDoubleClick={() => deleteTask(index)}
-            >
-              {task}
-            </div>
-          ))}
-          <div className="calendar-input-task">
-            {showInput && (
-              <input
-                type="text"
-                value={task}
-                onChange={(e) => setTask(e.target.value)}
-              />
-            )}
-          </div>
+          {showInput && (
+            <input
+              type="text"
+              value={task}
+              onChange={(e) => setTask(e.target.value)}
+              placeholder="Enter a task"
+              className="calendar-input"
+              maxLength={20}
+            />
+          )}
           <p className="add-icon" onClick={handleAddButtonClick}>
-            <i className="fa-solid fa-plus"></i> Add
-          </p>
-          {/* <button onClick={handleAddButtonClick}>
-            <i className="fa-solid fa-plus"></i> Add
-          </button> */}
-        </div>
-      </Draggable>
-      <Draggable handle=".drag-handle">
-        <div className="calendar-content">
-          <div className="calendar-header">
-            <h3>Wednesday</h3>
-            <p className="drag-handle">
-              <i className="fa-solid fa-up-down-left-right"></i>
-            </p>
-          </div>
-          <p className="add-icon">
-            <i className="fa-solid fa-plus"></i> Add
-          </p>
-        </div>
-      </Draggable>
-      <Draggable handle=".drag-handle">
-        <div className="calendar-content">
-          <div className="calendar-header">
-            <h3>Thursday</h3>
-            <p className="drag-handle">
-              <i className="fa-solid fa-up-down-left-right"></i>
-            </p>
-          </div>
-          <p className="add-icon">
-            <i className="fa-solid fa-plus"></i> Add
-          </p>
-        </div>
-      </Draggable>
-      <Draggable handle=".drag-handle">
-        <div className="calendar-content">
-          <div className="calendar-header">
-            <h3>Friday</h3>
-            <p className="drag-handle">
-              <i className="fa-solid fa-up-down-left-right"></i>
-            </p>
-          </div>
-          <p className="add-icon">
-            <i className="fa-solid fa-plus"></i> Add
+            <i className="fa-solid fa-plus"></i> Add Task
           </p>
         </div>
       </Draggable>

@@ -1,9 +1,17 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Appsbar.css";
 
 const Appsbar = ({ setActiveComponent }) => {
+  const [isActive, setIsActive] = useState(false);
+
   const handleIconClick = (componentName) => {
     setActiveComponent((prev) => (prev === componentName ? "" : componentName));
+
+    if (isActive) {
+      setIsActive(false);
+    } else {
+      setIsActive(true);
+    }
   };
 
   return (

@@ -7,10 +7,27 @@ import Timer from "./components/Timer";
 import Tasks from "./components/Tasks";
 import Expensive from "./components/Expensive";
 import Background from "./components/Background";
-import Draggable from "react-draggable";
 
 function App() {
   const [activeComponent, setActiveComponent] = useState(0);
+
+  const daysOfWeek = [
+    {
+      title: "Monday",
+    },
+    {
+      title: "Tuesday",
+    },
+    {
+      title: "Wednesday",
+    },
+    {
+      title: "Thrusday",
+    },
+    {
+      title: "Friday",
+    },
+  ];
 
   return (
     <div className="app">
@@ -18,7 +35,8 @@ function App() {
         <Clock></Clock>
       </section>
       <section className="content-section">
-        {activeComponent === "Calendar" && <Calendar />}
+        {activeComponent === "Calendar" &&
+          daysOfWeek.map((data) => <Calendar title={data.title}></Calendar>)}
         {activeComponent === "Timer" && <Timer />}
         {activeComponent === "Tasks" && <Tasks />}
         {activeComponent === "Expensive" && <Expensive />}
