@@ -45,25 +45,7 @@ const Calendar = () => {
               <i className="fa-solid fa-up-down-left-right"></i>
             </p>
           </div>
-          {tasks.map((task, index) => (
-            <div
-              key={index}
-              className="calendar-task-item"
-              onDoubleClick={() => deleteTask(index)}
-            >
-              {task}
-            </div>
-          ))}
-          <div className="calendar-input-task">
-            {showInput && (
-              <input
-                type="text"
-                value={task}
-                onChange={(e) => setTask(e.target.value)}
-              />
-            )}
-          </div>
-          <p className="add-icon" onClick={handleAddButtonClick}>
+          <p className="add-icon">
             <i className="fa-solid fa-plus"></i> Add
           </p>
         </div>
@@ -97,6 +79,9 @@ const Calendar = () => {
           <p className="add-icon" onClick={handleAddButtonClick}>
             <i className="fa-solid fa-plus"></i> Add
           </p>
+          {/* <button onClick={handleAddButtonClick}>
+            <i className="fa-solid fa-plus"></i> Add
+          </button> */}
         </div>
       </Draggable>
       <Draggable handle=".drag-handle">
@@ -107,25 +92,7 @@ const Calendar = () => {
               <i className="fa-solid fa-up-down-left-right"></i>
             </p>
           </div>
-          {tasks.map((task, index) => (
-            <div
-              key={index}
-              className="calendar-task-item"
-              onDoubleClick={() => deleteTask(index)}
-            >
-              {task}
-            </div>
-          ))}
-          <div className="calendar-input-task">
-            {showInput && (
-              <input
-                type="text"
-                value={task}
-                onChange={(e) => setTask(e.target.value)}
-              />
-            )}
-          </div>
-          <p className="add-icon" onClick={handleAddButtonClick}>
+          <p className="add-icon">
             <i className="fa-solid fa-plus"></i> Add
           </p>
         </div>
@@ -138,25 +105,7 @@ const Calendar = () => {
               <i className="fa-solid fa-up-down-left-right"></i>
             </p>
           </div>
-          {tasks.map((task, index) => (
-            <div
-              key={index}
-              className="calendar-task-item"
-              onDoubleClick={() => deleteTask(index)}
-            >
-              {task}
-            </div>
-          ))}
-          <div className="calendar-input-task">
-            {showInput && (
-              <input
-                type="text"
-                value={task}
-                onChange={(e) => setTask(e.target.value)}
-              />
-            )}
-          </div>
-          <p className="add-icon" onClick={handleAddButtonClick}>
+          <p className="add-icon">
             <i className="fa-solid fa-plus"></i> Add
           </p>
         </div>
@@ -169,25 +118,7 @@ const Calendar = () => {
               <i className="fa-solid fa-up-down-left-right"></i>
             </p>
           </div>
-          {tasks.map((task, index) => (
-            <div
-              key={index}
-              className="calendar-task-item"
-              onDoubleClick={() => deleteTask(index)}
-            >
-              {task}
-            </div>
-          ))}
-          <div className="calendar-input-task">
-            {showInput && (
-              <input
-                type="text"
-                value={task}
-                onChange={(e) => setTask(e.target.value)}
-              />
-            )}
-          </div>
-          <p className="add-icon" onClick={handleAddButtonClick}>
+          <p className="add-icon">
             <i className="fa-solid fa-plus"></i> Add
           </p>
         </div>
